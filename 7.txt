@@ -1,0 +1,32 @@
+uses crt, GraphABC;
+var x0,y0, x,y,  R, min, sec,chas: integer;
+ 
+begin
+  lockdrawing;
+  SetWindowSize(500,500); HideCursor;
+  x0:=250; y0:=250; min:=0; sec:=0;
+  repeat
+    ClearWindow;
+    SetPenWidth(5);
+    circle(250,250,170);
+    setfontsize(20);
+    setfontcolor(clblack);
+    setfontstyle(fsbold);
+    textout(235,90,'12');
+    textout(243,380,'6');
+    textout(385,240,'3');
+    textout(105,240,'9');
+    sec:=sec+1; min:= sec div 60;chas:=min div 60;
+    x:=x0+Round(120*sin(Pi*sec/30));
+    y:=y0-Round(120*cos(Pi*sec/30));
+    SetPenWidth(3); Line(x0, y0, x, y);
+    x:=x0+Round(100*sin(Pi*min/30));
+    y:=y0-Round(100*cos(Pi*min/30));
+    SetPenWidth(7); Line(x0, y0, x, y);
+    x:=x0+Round(60*sin(Pi*chas/30));
+    y:=y0-Round(60*cos(Pi*chas/30));
+    SetPenWidth(10); Line(x0, y0, x, y);
+    sleep(1000);
+    Redraw;
+  until keyPressed;
+end.
