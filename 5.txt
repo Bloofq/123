@@ -1,0 +1,17 @@
+public class Main {
+    public static void main(String args[]) {
+        String s = "Раманв теплице рАзусрезал для Разы. Раза была разового цвета. Раза очень была благодарна РАману.";
+        StringBuffer s2 = new StringBuffer(s);
+        System.out.println("Исходная строка");
+        System.out.println(s2);
+        for (int i = s2.length()-2; i>=0; i--) {
+            if ((s2.charAt(i)=='р' || s2.charAt(i)=='Р') && (s2.charAt(i+1)=='а' || s2.charAt(i+1)=='А')) {
+                s2.deleteCharAt(i+1);
+                s2.replace(i+1, i+1, "o");
+            }
+        }
+        System.out.println();
+        System.out.println("Строка после изменения");
+        System.out.println(s2);
+    }
+}
